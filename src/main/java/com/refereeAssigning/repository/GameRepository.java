@@ -4,6 +4,7 @@ import com.refereeAssigning.model.Game;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -24,5 +25,5 @@ public interface GameRepository extends JpaRepository<Game, Long> {
     List<Game> findByStatus(String status);
 
     // Custom query to find games by date range
-    List<Game> findByGameDateBetween(String startDate, String endDate);
+    List<Game> findByGameDateBetween(LocalDateTime startDate, LocalDateTime endDate);
 }
