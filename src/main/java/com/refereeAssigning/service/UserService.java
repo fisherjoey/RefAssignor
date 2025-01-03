@@ -59,4 +59,10 @@ public class UserService {
         }
         userRepository.deleteById(id);
     }
+
+    // Check if email exists
+    public boolean emailExists(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
 }
