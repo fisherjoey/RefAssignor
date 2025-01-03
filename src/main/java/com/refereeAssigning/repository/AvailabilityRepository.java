@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Repository
@@ -14,11 +15,14 @@ public interface AvailabilityRepository extends JpaRepository<Availability, Long
     List<Availability> findByRefereeId(Long refereeId);
 
     // Find availability for a referee within a date range
-    List<Availability> findByRefereeIdAndStartTimeBetween(Long refereeId, LocalDateTime startTime, LocalDateTime endTime);
-
+    List<Availability> findByRefereeIdAndStartDateTimeLessThanEqualAndEndDateTimeGreaterThanEqual(
+            Long refereeId, LocalTime startDateTime, LocalTime endDateTime
+    );
     // Deletes all availability for a referee
     void deleteByRefereeId(Long refereeId);
 
-    // Find all availability overlapping a specific time
-    List<Availability> findByStartTimeLessThanEqualAndEndTimeGreaterThanEqual(LocalDateTime endTime, LocalDateTime startTime);
+    // Find all player availability overlapping a specific time
+    List<Availability> findByStartDateTimeLessThanEqualAndEndDateTimeGreaterThanEqual(
+            LocalTime startDateTime, LocalTime endDateTime
+    );
 }

@@ -16,15 +16,13 @@ public class Availability {
     private Long refereeId; // ID of the referee
 
     @Column(nullable = false)
-    private LocalDate date; // Date of availability
+    private LocalTime startDateTime; // Start date time of availability
 
     @Column(nullable = false)
-    private LocalTime startTime; // Start time of availability
-
-    @Column(nullable = false)
-    private LocalTime endTime; // End time of availability
+    private LocalTime endDateTime; // End date time of availability
 
     // Getters and Setters
+
     public Long getAvailabilityId() {
         return availabilityId;
     }
@@ -41,27 +39,19 @@ public class Availability {
         this.refereeId = refereeId;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalTime getStartDateTime() {
+        return startDateTime;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setStartDateTime(LocalTime startDateTime) {
+        this.startDateTime = startDateTime;
     }
 
-    public LocalTime getStartTime() {
-        return startTime;
+    public LocalTime getEndDataTime() {
+        return endDateTime;
     }
 
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
+    public void setEndDataTime(LocalTime endDataTime) {
+        this.endDateTime = endDataTime;
     }
 }
