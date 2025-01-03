@@ -16,12 +16,12 @@ public class NotificationService {
     }
 
     // Get all notifications by user ID
-    public List<Notification> getNotificationsByUser(Long userId) {
+    public List<Notification> getNotificationsByUserId(Long userId) {
         return notificationRepository.findByUserId(userId);
     }
 
     // Get unread notifications by user ID
-    public List<Notification> getUnreadNotificationsByUser(Long userId) {
+    public List<Notification> getUnreadNotificationsByUserId(Long userId) {
         return notificationRepository.findByUserIdAndReadStatus(userId, false);
     }
 
@@ -29,6 +29,18 @@ public class NotificationService {
     public Notification createNotification(Notification notification) {
         return notificationRepository.save(notification);
     }
-    // TODO Mark a notification as read
 
+    // TODO Mark a notification as read
+    public Notification markAsRead(Long notificationId) {
+       notificationRepository.markRead(notificationId, true);
+       return notificationRepository.findByNotificationId(notificationId);
+    }
+
+    public void deleteNotification(Long id) {
+        notificationRepository.deleteByNotificationId(id);
+    }
+
+    public List<Notification> getAllNotifications() {
+        return notificationRepository.findAll();
+    }
 }
