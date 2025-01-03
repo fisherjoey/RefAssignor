@@ -2,7 +2,6 @@ package com.refereeAssigning.controller;
 
 import com.refereeAssigning.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.refereeAssigning.service.UserService;
