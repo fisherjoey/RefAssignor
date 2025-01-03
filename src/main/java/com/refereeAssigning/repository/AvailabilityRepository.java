@@ -2,6 +2,7 @@ package com.refereeAssigning.repository;
 
 import com.refereeAssigning.model.Availability;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -25,4 +26,7 @@ public interface AvailabilityRepository extends JpaRepository<Availability, Long
     List<Availability> findByStartDateTimeLessThanEqualAndEndDateTimeGreaterThanEqual(
             LocalTime startDateTime, LocalTime endDateTime
     );
+
+    @Query("SELECT a FROM Availability a WHERE a.refereeId = :refereeId AND a.startDateTime >= :startDateTime AND a.endDateTime <= :endDateTime")
+    List<Availability> findByRefereeIdAndDateRange(Long refereeId, LocalDateTime startDateTime, LocalDateTime endDateTime);
 }
