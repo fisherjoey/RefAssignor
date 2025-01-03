@@ -33,7 +33,7 @@ public class Game {
     @ElementCollection
     @CollectionTable(name = "game_referees", joinColumns = @JoinColumn(name = "game_id"))
     @Column(name = "referee_id")
-    private List<Long> assignedReferees; // List of assigned referee IDs
+    private List<Long> assignedReferees;
 
     @Column(nullable = false)
     private Double payDetails;
