@@ -54,12 +54,12 @@ public class GameService {
     }
 
     // Get games by referee ID
-    public List<Game> getGamesByReferee(Long refereeId) {
+    public List<Game> getGamesByRefereeId(Long refereeId) {
         return gameRepository.findByAssignedRefereeId(refereeId);
     }
 
     // Get games by date range
-    public List<Game> getGamesByDateRange(LocalDateTime startDate, LocalDateTime endDate) {
+    public List<Game> getGamesWithinDateRange(LocalDateTime startDate, LocalDateTime endDate) {
         return gameRepository.findByDateTimeBetween(startDate, endDate);
     }
 }
