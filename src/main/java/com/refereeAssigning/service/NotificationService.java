@@ -1,4 +1,4 @@
-package main.java.com.refereeAssigning.service;
+package com.refereeAssigning.service;
 
 public class NotificationService {
 }
