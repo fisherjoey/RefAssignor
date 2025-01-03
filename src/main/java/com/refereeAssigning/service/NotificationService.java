@@ -29,7 +29,6 @@ public class NotificationService {
     public Notification createNotification(Notification notification) {
         return notificationRepository.save(notification);
     }
-
     // TODO Mark a notification as read
 
 }

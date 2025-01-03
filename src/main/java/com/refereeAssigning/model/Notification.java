@@ -15,7 +15,7 @@ public class Notification {
     private String messageText;
 
     @Column(nullable = false)
-    private boolean isRead;
+    private boolean readStatus = false;
 
     @Column(nullable = false)
     private Long userId; // ID of the user receiving the notification
@@ -40,12 +40,12 @@ public class Notification {
         this.messageText = messageText;
     }
 
-    public boolean isRead() {
-        return isRead;
+    public boolean isReadStatus() {
+        return readStatus;
     }
 
-    public void setRead(boolean isRead) {
-        this.isRead = isRead;
+    public void setReadStatus(boolean read) {
+        this.readStatus = read;
     }
 
     public Long getUserId() {
