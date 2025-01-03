@@ -23,7 +23,7 @@ public class User {
     private Double wage;
 
     @Column(nullable = false)
-    private Double score;
+    private Double score = 0.0;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
